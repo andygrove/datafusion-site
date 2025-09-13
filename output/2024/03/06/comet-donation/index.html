@@ -9,6 +9,7 @@
 <link href="/blog/css/fontawesome.all.min.css" rel="stylesheet">
 <link href="/blog/css/headerlink.css" rel="stylesheet">
 <link href="/blog/highlight/default.min.css" rel="stylesheet">
+<link href="/blog/css/app.css" rel="stylesheet">
 <script src="/blog/highlight/highlight.js"></script>
 <script>hljs.highlightAll();</script>  </head>
   <body class="d-flex flex-column h-100">
@@ -33,17 +34,18 @@
         </div>
     </div>
 </nav>    
-
-
-<!-- page contents -->
+<!-- article contents -->
 <div id="contents">
-    <div class="bg-white p-5 rounded">
-        <div class="col-sm-8 mx-auto">
-          <h1>
-              Announcing Apache Arrow DataFusion Comet
-          </h1>
-              <p>Posted on: Wed 06 March 2024 by pmc</p>
-              <!--
+  <div class="bg-white p-4 p-md-5 rounded">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 main-content">
+        <h1>
+          Announcing Apache Arrow DataFusion Comet
+        </h1>
+        <p>Posted on: Wed 06 March 2024 by pmc</p>
+
+
+        <!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements.  See the NOTICE file distributed with
@@ -61,7 +63,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 {% endcomment %}
 -->
-<h1>Introduction</h1>
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>The Apache Arrow PMC is pleased to announce the donation of the <a href="https://github.com/apache/arrow-datafusion-comet">Comet project</a>,
 a native Spark SQL Accelerator built on <a href="https://arrow.apache.org/datafusion">Apache Arrow DataFusion</a>.</p>
 <p>Comet is an Apache Spark plugin that uses Apache Arrow DataFusion to
@@ -86,7 +88,7 @@ DataFusion).</p>
 project are also significant contributors to Arrow and DataFusion. Bringing 
 Comet into the Apache Software Foundation will accelerate its development and 
 grow its community of contributors and users.</p>
-<h1>Get Involved</h1>
+<h1 id="get-involved">Get Involved<a class="headerlink" href="#get-involved" title="Permanent link">&para;</a></h1>
 <p>Comet is still in the early stages of development and we would love to have you
 join us and help shape the project. We are working on an initial release, and 
 expect to post another update with more details at that time.</p>
@@ -103,12 +105,43 @@ expect to post another update with more details at that time.</p>
 <p>Try out the project and provide feedback, file issues, and contribute code.</p>
 </li>
 </ul>
-        </div>
-      </div>
-    </div>    
+
+<!--
+  Comments Section
+  Loaded only after explicit visitor consent to comply with ASF policy.
+-->
+
+<div id="comments">
+  <hr>
+  <h3>Comments</h3>
+
+  <!-- Local loader script -->
+  <script src="/content/js/giscus-consent.js" defer></script>
+
+  <!-- Consent UI -->
+  <div id="giscus-consent">
+    <p>
+        We use <a href="https://giscus.app/">Giscus</a> for comments, powered by GitHub Discussions.
+        To respect your privacy, Giscus and comments will load only if you click "Show Comments"
+    </p>
+
+    <div class="consent-actions">
+      <button id="giscus-load" type="button">Show Comments</button>
+      <button id="giscus-revoke" type="button" hidden>Hide Comments</button>
+    </div>
+
+    <noscript>JavaScript is required to load comments from Giscus.</noscript>
+  </div>
+
+  <!-- Container where Giscus will render -->
+  <div id="comment-thread"></div>
+</div>      </div>
+    </div>
+  </div>
+</div>    
     <!-- footer -->
-    <div class="row">
-      <div class="large-12 medium-12 columns">
+    <div class="row g-0">
+      <div class="col-12">
         <p style="font-style: italic; font-size: 0.8rem; text-align: center;">
           Copyright 2025, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
           Apache&reg; and the Apache feather logo are trademarks of The Apache Software Foundation.
