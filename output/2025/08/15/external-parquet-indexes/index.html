@@ -10,6 +10,8 @@
 <link href="/blog/css/headerlink.css" rel="stylesheet">
 <link href="/blog/highlight/default.min.css" rel="stylesheet">
 <link href="/blog/css/app.css" rel="stylesheet">
+<link href="/blog/css/dark-mode.css" rel="stylesheet">
+<script src="/blog/js/dark-mode.js"></script>
 <script src="/blog/highlight/highlight.js"></script>
 <script>hljs.highlightAll();</script>  </head>
   <body class="d-flex flex-column h-100">
@@ -17,7 +19,7 @@
 <!-- nav bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/blog"><img src="/blog/images/logo_original4x.png" style="height: 32px;"/> Apache DataFusion Blog</a>
+        <a class="navbar-brand" href="/blog/"><img src="/blog/images/logo_original4x.png" style="height: 32px;"/> Apache DataFusion Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarADP" aria-controls="navbarADP" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,6 +33,10 @@
                     <a class="nav-link" href="/blog/feed.xml">RSS</a>
                 </li>
             </ul>
+            <button id="dark-mode-toggle" type="button" class="dark-mode-toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+                <span class="sun-icon" aria-hidden="true">☀</span>
+                <span class="moon-icon" aria-hidden="true">☾</span>
+            </button>
         </div>
     </div>
 </nav>    
@@ -44,7 +50,7 @@
         </h1>
         <p>Posted on: Fri 15 August 2025 by Andrew Lamb (InfluxData)</p>
 
-        <aside class="d-md-none mb-2">
+        <aside class="toc-container d-md-none mb-2">
           <div class="toc"><span class="toctitle">Contents</span><ul>
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#introduction-to-external-indexes-catalogs-metadata-stores-caches">Introduction to External Indexes / Catalogs / Metadata Stores / Caches</a></li>
@@ -669,7 +675,7 @@ to be clustered in a more optimal way for the queries.</p>
   <!-- Container where Giscus will render -->
   <div id="comment-thread"></div>
 </div>      </div>
-      <aside class="d-none d-md-block col-md-4 col-xl-3 ms-xl-2">
+      <aside class="toc-container d-none d-md-block col-md-4 col-xl-3 ms-xl-2">
         <div class="toc"><span class="toctitle">Contents</span><ul>
 <li><a href="#motivation">Motivation</a></li>
 <li><a href="#introduction-to-external-indexes-catalogs-metadata-stores-caches">Introduction to External Indexes / Catalogs / Metadata Stores / Caches</a></li>
@@ -703,7 +709,7 @@ to be clustered in a more optimal way for the queries.</p>
     <div class="row g-0">
       <div class="col-12">
         <p style="font-style: italic; font-size: 0.8rem; text-align: center;">
-          Copyright 2025, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
+          Copyright 2026, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
           Apache&reg; and the Apache feather logo are trademarks of The Apache Software Foundation.
         </p>
       </div>
