@@ -53,7 +53,7 @@ Spark 4.1.1, with dedicated Maven profiles, shim sources, and CI matrices for ea
 ### Adapting to Spark 4 Behavior Changes
 
 Spark 4 introduced a number of type, planner, and on-disk format changes relative to Spark 3.x. Several
-correctness fixes this release bring Comet's behavior in line with these changes:
+correctness fixes in this release bring Comet's behavior in line with these changes:
 
 - **`Variant` type (new in Spark 4.0)**: Spark 4.0 added a new `Variant` data type for semi-structured
   data. Comet does not yet read the shredded Variant on-disk format natively, and delegates these scans
@@ -64,7 +64,7 @@ correctness fixes this release bring Comet's behavior in line with these changes
   non-default collation.
 - **Wider `TimestampNTZType` usage**: Spark 4 uses `TimestampNTZType` (timestamp without time zone) in
   more places than 3.x — for example, in expression return types and as the inferred type for some
-  literal forms. Comet adds support this cycle for cast to and from `timestamp_ntz`, cast from string to
+  literal forms. Comet adds support in this cycle for cast to and from `timestamp_ntz`, cast from string to
   `timestamp_ntz`, and `unix_timestamp` over `TimestampNTZType` inputs.
 - **`to_json` and `array_compact` (Spark 4.0)**: Spark 4.0 adjusted output formatting and return-type
   metadata for these expressions; Comet now matches the new behavior.
@@ -158,7 +158,7 @@ and prevent regressions.
 
 ## Improved TPC-DS Benchmark Results
 
-TPC-DS performance increased significantly compared to the 0.15.0 release and Comet is now very close to 2x faster than Spark.
+TPC-DS performance increased significantly compared to the 0.15.0 release, and Comet is now very close to 2x faster than Spark.
 
 <img
 src="/blog/images/comet-0.16.0/tpcds_speedup.png"
