@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Apache DataFusion Blog - Andrew Lamb, Achraf B, and Sean Smith</title><link href="https://datafusion.apache.org/blog/" rel="alternate"></link><link href="https://datafusion.apache.org/blog/feeds/andrew-lamb-achraf-b-and-sean-smith.atom.xml" rel="self"></link><id>https://datafusion.apache.org/blog/</id><updated>2025-04-10T00:00:00+00:00</updated><subtitle></subtitle><entry><title>tpchgen-rs World’s fastest open source TPC-H data generator, written in Rust</title><link href="https://datafusion.apache.org/blog/2025/04/10/fastest-tpch-generator" rel="alternate"></link><published>2025-04-10T00:00:00+00:00</published><updated>2025-04-10T00:00:00+00:00</updated><author><name>Andrew Lamb, Achraf B, and Sean Smith</name></author><id>tag:datafusion.apache.org,2025-04-10:/blog/2025/04/10/fastest-tpch-generator</id><summary type="html">&lt;!--
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Apache DataFusion Blog - Andrew Lamb, Achraf B, and Sean Smith</title><link href="https://datafusion.apache.org/blog/" rel="alternate"/><link href="https://datafusion.apache.org/blog/feeds/andrew-lamb-achraf-b-and-sean-smith.atom.xml" rel="self"/><id>https://datafusion.apache.org/blog/</id><updated>2025-04-10T00:00:00+00:00</updated><entry><title>tpchgen-rs World’s fastest open source TPC-H data generator, written in Rust</title><link href="https://datafusion.apache.org/blog/2025/04/10/fastest-tpch-generator" rel="alternate"/><published>2025-04-10T00:00:00+00:00</published><updated>2025-04-10T00:00:00+00:00</updated><author><name>Andrew Lamb, Achraf B, and Sean Smith</name></author><id>tag:datafusion.apache.org,2025-04-10:/blog/2025/04/10/fastest-tpch-generator</id><summary type="html">&lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements.  See the NOTICE file distributed with
@@ -16,19 +16,11 @@ limitations under the License.
 {% endcomment %}x
 --&gt;
 
-&lt;style&gt;
-/* Table borders */
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 3px;
-}
-&lt;/style&gt;
 &lt;p&gt;&lt;strong&gt;TLDR: TPC-H SF=100 in 1min using tpchgen-rs vs 30min+ with dbgen&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;3 members of the &lt;a href="https://datafusion.apache.org/"&gt;Apache DataFusion&lt;/a&gt; community used Rust and open source
-development to build &lt;a href="https://github.com/clflushopt/tpchgen-rs"&gt;tpchgen-rs&lt;/a&gt;, a fully open TPC-H data generator over …&lt;/p&gt;</summary><content type="html">&lt;!--
+development to build &lt;a href="https://github.com/clflushopt/tpchgen-rs"&gt;tpchgen-rs&lt;/a&gt;, a fully open TPC-H data generator over 20x
+faster than any other implementation we know of.&lt;/p&gt;
+&lt;p&gt;It is now possible to create …&lt;/p&gt;</summary><content type="html">&lt;!--
 {% comment %}
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements.  See the NOTICE file distributed with
@@ -45,16 +37,6 @@ limitations under the License.
 {% endcomment %}x
 --&gt;
 
-&lt;style&gt;
-/* Table borders */
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 3px;
-}
-&lt;/style&gt;
 &lt;p&gt;&lt;strong&gt;TLDR: TPC-H SF=100 in 1min using tpchgen-rs vs 30min+ with dbgen&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;3 members of the &lt;a href="https://datafusion.apache.org/"&gt;Apache DataFusion&lt;/a&gt; community used Rust and open source
 development to build &lt;a href="https://github.com/clflushopt/tpchgen-rs"&gt;tpchgen-rs&lt;/a&gt;, a fully open TPC-H data generator over 20x
@@ -65,7 +47,7 @@ which takes 30 minutes&lt;sup&gt;1&lt;/sup&gt; (0.05GB/sec). On the same machine
 2 minutes to create all 36 GB of SF=100 in &lt;a href="https://parquet.apache.org/"&gt;Apache Parquet&lt;/a&gt; format, which takes 44 minutes using &lt;a href="https://duckdb.org"&gt;DuckDB&lt;/a&gt;.
 It is finally convenient and efficient to run TPC-H queries locally when testing
 analytical engines such as DataFusion.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Time to create TPC-H parquet dataset for Scale Factor  1, 10, 100 and 1000" class="img-responsive" src="/blog/images/fastest-tpch-generator/parquet-performance.png" width="80%"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Time to create TPC-H parquet dataset for Scale Factor  1, 10, 100 and 1000" class="img-fluid" src="/blog/images/fastest-tpch-generator/parquet-performance.png" width="80%"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Figure 1&lt;/strong&gt;: Time to create TPC-H dataset for Scale Factor (see below) 1, 10,
 100 and 1000 as 8 individual SNAPPY compressed parquet files using a 22 core GCP
 VM with 88GB of memory. For Scale Factor(SF) 100 &lt;code&gt;tpchgen&lt;/code&gt; takes 1 minute and 14 seconds and
@@ -182,7 +164,7 @@ load the data, using &lt;code&gt;dbgen&lt;/code&gt;, which is not ideal for seve
 &lt;li&gt;It outputs TBL format, which typically requires loading into your database (for example, &lt;a href="https://github.com/apache/datafusion/blob/507f6b6773deac69dd9d90dbe60831f5ea5abed1/datafusion/sqllogictest/test_files/tpch/create_tables.slt.part#L24-L124"&gt;here is how to do so&lt;/a&gt; in Apache DataFusion) prior to query.&lt;/li&gt;
 &lt;li&gt;The implementation makes substantial assumptions about the operating environment, making it difficult to extend or embed into other systems.&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img alt="Time to generate TPC-H data in TBL format" class="img-responsive" src="/blog/images/fastest-tpch-generator/tbl-performance.png" width="80%"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Time to generate TPC-H data in TBL format" class="img-fluid" src="/blog/images/fastest-tpch-generator/tbl-performance.png" width="80%"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Figure 3&lt;/strong&gt;: Time to generate TPC-H data in TBL format. &lt;code&gt;tpchgen&lt;/code&gt; is
 shown in blue. &lt;code&gt;tpchgen&lt;/code&gt; restricted to a single core is shown in red. Unmodified
 &lt;code&gt;dbgen&lt;/code&gt; is shown in green and &lt;code&gt;dbgen&lt;/code&gt; modified to use &lt;code&gt;-O3&lt;/code&gt; optimization level
@@ -216,7 +198,7 @@ safety or concurrency issues.&lt;/p&gt;
 example), when required for performance, our implementation is entirely memory
 safe. The only &lt;a href="https://github.com/search?q=repo%3Aclflushopt%2Ftpchgen-rs%20unsafe&amp;amp;type=code"&gt;unsafe&lt;/a&gt; code is used to &lt;a href="https://github.com/clflushopt/tpchgen-rs/blob/c651da1fc309f9cb3872cbdf71e4796904dc62c6/tpchgen/src/text.rs#L72"&gt;skip&lt;/a&gt; UTF8 validation on known ASCII
 strings.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Lamb Theory on Evolution of Systems Languages" class="img-responsive" src="/blog/images/fastest-tpch-generator/lamb-theory.png" width="80%"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Lamb Theory on Evolution of Systems Languages" class="img-fluid" src="/blog/images/fastest-tpch-generator/lamb-theory.png" width="80%"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Figure 4&lt;/strong&gt;: Lamb Theory of System Language Evolution from &lt;a href="https://midas.bu.edu/assets/slides/andrew_lamb_slides.pdf"&gt;Boston University
 MiDAS Fall 2024 (Data Systems Seminar)&lt;/a&gt;, &lt;a href="https://www.youtube.com/watch?v=CpnxuBwHbUc"&gt;recording&lt;/a&gt;. Special
 thanks to &lt;a href="https://x.com/KurtFehlhauer"&gt;@KurtFehlhauer&lt;/a&gt;&lt;/p&gt;
@@ -469,4 +451,4 @@ DataFusion (see &lt;a href="https://github.com/apache/datafusion/issues/14608"&g
 &lt;p&gt;&lt;em&gt;2&lt;/em&gt;: It is possible to embed the dbgen code, which appears to be the approach taken by DuckDB. This approach was tried in GlareDB (&lt;a href="https://github.com/GlareDB/glaredb/pull/3313"&gt;GlareDB/glaredb#3313&lt;/a&gt;), but ultimately shelved given the amount of effort needed to adapt and isolate the dbgen code.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;3&lt;/em&gt;: It is pretty amazing to imagine the machine required to generate SF300 that had 1.8TB (!!) of RAM&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;4&lt;/em&gt;: We tried to &lt;a href="https://github.com/clflushopt/tpchgen-rs/pull/34"&gt;use Rayon (see discussion here)&lt;/a&gt;, but could not easily keep memory bounded.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;5&lt;/em&gt;: &lt;code&gt;tpchgen-cli&lt;/code&gt; memory usage is a function of the number of threads:  each thread needs some buffer space&lt;/p&gt;</content><category term="blog"></category></entry></feed>
+&lt;p&gt;&lt;em&gt;5&lt;/em&gt;: &lt;code&gt;tpchgen-cli&lt;/code&gt; memory usage is a function of the number of threads:  each thread needs some buffer space&lt;/p&gt;</content><category term="blog"/></entry></feed>

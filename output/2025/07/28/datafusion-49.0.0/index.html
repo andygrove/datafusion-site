@@ -5,6 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apache DataFusion 49.0.0 Released - Apache DataFusion Blog</title>
+<link href="/blog/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/blog/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="/blog/css/bootstrap.min.css" rel="stylesheet">
 <link href="/blog/css/fontawesome.all.min.css" rel="stylesheet">
 <link href="/blog/css/headerlink.css" rel="stylesheet">
@@ -17,8 +19,8 @@
   <body class="d-flex flex-column h-100">
   <main class="flex-shrink-0">
 <!-- nav bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Fifth navbar example">
+    <div class="container-fluid navbar-content">
         <a class="navbar-brand" href="/blog/"><img src="/blog/images/logo_original4x.png" style="height: 32px;"/> Apache DataFusion Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarADP" aria-controls="navbarADP" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +50,7 @@
         <h1>
           Apache DataFusion 49.0.0 Released
         </h1>
-        <p>Posted on: Mon 28 July 2025 by pmc</p>
+        <p><i>Posted on: Mon 28 July 2025 by pmc</i></p>
 
         <aside class="toc-container d-md-none mb-2">
           <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -97,7 +99,7 @@ limitations under the License.
 the major improvements since the release of <a href="https://datafusion.apache.org/blog/2025/07/18/datafusion-48.0.0/">DataFusion 48.0.0</a>. The complete list of changes is available in the <a href="https://github.com/apache/datafusion/blob/branch-49/dev/changelog/49.0.0.md">changelog</a>.</p>
 <h2 id="performance-improvements">Performance Improvements 🚀<a class="headerlink" href="#performance-improvements" title="Permanent link">¶</a></h2>
 <p>DataFusion continues to focus on enhancing performance, as shown in the ClickBench and other results. </p>
-<p><img alt="ClickBench performance results over time for DataFusion" class="img-responsive" src="/blog/images/datafusion-49.0.0/performance_over_time_clickbench.png" width="100%"/></p>
+<p><img alt="ClickBench performance results over time for DataFusion" class="img-fluid" src="/blog/images/datafusion-49.0.0/performance_over_time_clickbench.png" width="100%"/></p>
 <p><strong>Figure 1</strong>: ClickBench performance improvements over time
 Average and median normalized query execution times for ClickBench queries for each git revision. 
 Query times are normalized using the ClickBench definition. Data and definitions on the 
@@ -108,7 +110,7 @@ NOTE: Andrew is working on gathering these numbers
 <img
 src="/blog/images/datafusion-49.0.0/performance_over_time_planning.png"
 width="80%"
-class="img-responsive"
+class="img-fluid"
 alt="Planning benchmark performance results over time for DataFusion"
 />
 
@@ -363,12 +365,12 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
   Loaded only after explicit visitor consent to comply with ASF policy.
 -->
 
-<div id="comments">
+<div>
   <hr>
-  <h3>Comments</h3>
+  <h3 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h3>
 
   <!-- Local loader script -->
-  <script src="/content/js/giscus-consent.js" defer></script>
+  <script src="/blog/js/giscus-consent.js" defer></script>
 
   <!-- Consent UI -->
   <div id="giscus-consent">
@@ -409,6 +411,7 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
 </ul>
 </div>
       </aside>
+      <script src="/blog/js/toc-highlight.js" defer></script>
     </div>
   </div>
 </div>    
@@ -417,7 +420,16 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
       <div class="col-12">
         <p style="font-style: italic; font-size: 0.8rem; text-align: center;">
           Copyright 2026, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
-          Apache&reg; and the Apache feather logo are trademarks of The Apache Software Foundation.
+          Apache&reg; and the Apache logo are trademarks of The Apache Software Foundation.
+        </p>
+        <p style="font-size: 0.8rem; text-align: center;">
+          <a href="https://www.apache.org/">Foundation</a> |
+          <a href="https://www.apache.org/events/current-event.html">Events</a> |
+          <a href="https://www.apache.org/licenses/">License</a> |
+          <a href="https://www.apache.org/security/">Security</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> |
+          <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy</a>
         </p>
       </div>
     </div>

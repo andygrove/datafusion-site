@@ -5,6 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apache DataFusion 52.0.0 Released - Apache DataFusion Blog</title>
+<link href="/blog/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/blog/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="/blog/css/bootstrap.min.css" rel="stylesheet">
 <link href="/blog/css/fontawesome.all.min.css" rel="stylesheet">
 <link href="/blog/css/headerlink.css" rel="stylesheet">
@@ -17,8 +19,8 @@
   <body class="d-flex flex-column h-100">
   <main class="flex-shrink-0">
 <!-- nav bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Fifth navbar example">
+    <div class="container-fluid navbar-content">
         <a class="navbar-brand" href="/blog/"><img src="/blog/images/logo_original4x.png" style="height: 32px;"/> Apache DataFusion Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarADP" aria-controls="navbarADP" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +50,7 @@
         <h1>
           Apache DataFusion 52.0.0 Released
         </h1>
-        <p>Posted on: Mon 12 January 2026 by pmc</p>
+        <p><i>Posted on: Mon 12 January 2026 by pmc</i></p>
 
         <aside class="toc-container d-md-none mb-2">
           <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -114,7 +116,8 @@ END
 </code></pre>
 <p>This is the final work in our <code>CASE</code> performance epic (<a href="https://github.com/apache/datafusion/issues/18075">#18075</a>), which has
 improved <code>CASE</code> evaluation significantly. Related PRs <a href="https://github.com/apache/datafusion/pull/18183">#18183</a>. Thanks to
-<a href="https://github.com/rluvaton">rluvaton</a> and <a href="https://github.com/pepijnve">pepijnve</a> for the implementation.</p>
+<a href="https://github.com/rluvaton">rluvaton</a> and <a href="https://github.com/pepijnve">pepijnve</a> for the implementation. See the
+<a href="/blog/2026/02/02/datafusion_case/">Optimizing SQL CASE Expression Evaluation</a> blog post for more details.</p>
 <h3 id="minmax-aggregate-dynamic-filters"><code>MIN</code>/<code>MAX</code> Aggregate Dynamic Filters<a class="headerlink" href="#minmax-aggregate-dynamic-filters" title="Permanent link">¶</a></h3>
 <p>DataFusion now creates dynamic filters for queries with <code>MIN</code>/<code>MAX</code> aggregates
 that have filters, but no <code>GROUP BY</code>. These dynamic filters are used during scan
@@ -297,12 +300,12 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
   Loaded only after explicit visitor consent to comply with ASF policy.
 -->
 
-<div id="comments">
+<div>
   <hr>
-  <h3>Comments</h3>
+  <h3 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h3>
 
   <!-- Local loader script -->
-  <script src="/content/js/giscus-consent.js" defer></script>
+  <script src="/blog/js/giscus-consent.js" defer></script>
 
   <!-- Consent UI -->
   <div id="giscus-consent">
@@ -347,6 +350,7 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
 </ul>
 </div>
       </aside>
+      <script src="/blog/js/toc-highlight.js" defer></script>
     </div>
   </div>
 </div>    
@@ -355,7 +359,16 @@ can find out how to reach us on the <a href="https://datafusion.apache.org/contr
       <div class="col-12">
         <p style="font-style: italic; font-size: 0.8rem; text-align: center;">
           Copyright 2026, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
-          Apache&reg; and the Apache feather logo are trademarks of The Apache Software Foundation.
+          Apache&reg; and the Apache logo are trademarks of The Apache Software Foundation.
+        </p>
+        <p style="font-size: 0.8rem; text-align: center;">
+          <a href="https://www.apache.org/">Foundation</a> |
+          <a href="https://www.apache.org/events/current-event.html">Events</a> |
+          <a href="https://www.apache.org/licenses/">License</a> |
+          <a href="https://www.apache.org/security/">Security</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> |
+          <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy</a>
         </p>
       </div>
     </div>

@@ -5,6 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apache DataFusion 46.0.0 Released - Apache DataFusion Blog</title>
+<link href="/blog/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/blog/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="/blog/css/bootstrap.min.css" rel="stylesheet">
 <link href="/blog/css/fontawesome.all.min.css" rel="stylesheet">
 <link href="/blog/css/headerlink.css" rel="stylesheet">
@@ -17,8 +19,8 @@
   <body class="d-flex flex-column h-100">
   <main class="flex-shrink-0">
 <!-- nav bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Fifth navbar example">
+    <div class="container-fluid navbar-content">
         <a class="navbar-brand" href="/blog/"><img src="/blog/images/logo_original4x.png" style="height: 32px;"/> Apache DataFusion Blog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarADP" aria-controls="navbarADP" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +50,7 @@
         <h1>
           Apache DataFusion 46.0.0 Released
         </h1>
-        <p>Posted on: Mon 24 March 2025 by Oznur Hanci and Berkay Sahin on behalf of the PMC</p>
+        <p><i>Posted on: Mon 24 March 2025 by Oznur Hanci and Berkay Sahin on behalf of the PMC</i></p>
 
         <aside class="toc-container d-md-none mb-2">
           <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -113,7 +115,7 @@ limitations under the License.
 <h3 id="improved-diagnostics">Improved Diagnostics<a class="headerlink" href="#improved-diagnostics" title="Permanent link">¶</a></h3>
 <p>DataFusion 46.0.0 introduces a new <a href="https://github.com/apache/datafusion/issues/14429"><strong>SQL Diagnostics framework</strong></a> to make error messages more understandable. This comes in the form of new <code>Diagnostic</code> and <code>DiagnosticEntry</code> types, which allow the system to attach rich context (like source query text spans) to error messages. In practical terms, certain planner errors will now point to the exact location in your SQL query that caused the issue. </p>
 <p>For example, if you reference an unknown table or miss a column in <code>GROUP BY</code> the error message will include the query snippet causing the error. These diagnostics are meant for end-users of applications built on DataFusion, providing clearer messages instead of generic errors. Here’s an example:</p>
-<p><img alt="diagnostic-example" class="img-responsive" src="/blog/images/datafusion-46.0.0/diagnostic-example.png" width="80%"/></p>
+<p><img alt="diagnostic-example" class="img-fluid" src="/blog/images/datafusion-46.0.0/diagnostic-example.png" width="80%"/></p>
 <p>Currently, diagnostics cover unresolved table/column references, missing <code>GROUP BY</code> columns, ambiguous references, wrong number of UNION columns, type mismatches, and a few others. Future releases will extend this to more error types. This feature should greatly ease debugging of complex SQL by pinpointing errors directly in the query text. We thank <a href="https://github.com/eliaperantoni">@eliaperantoni</a> for his contributions in this project.</p>
 <h3 id="unified-datasourceexec-for-table-providers">Unified <code>DataSourceExec</code> for Table Providers<a class="headerlink" href="#unified-datasourceexec-for-table-providers" title="Permanent link">¶</a></h3>
 <p>As mentioned, DataFusion now uses a unified <code>DataSourceExec</code> for reading tables, which is both a breaking change and a feature. <em>Why is this important?</em> The new approach simplifies how custom table providers are integrated and optimized. Namely, the optimizer can treat file scans uniformly and push down filters/limits more consistently when there is one execution plan that handles all data sources. The new <code>DataSourceExec</code> is paired with a <code>DataSource</code> trait that encapsulates format-specific behaviors (Parquet, CSV, JSON, Avro, etc.) in a pluggable way.</p>
@@ -121,7 +123,7 @@ limitations under the License.
 <h3 id="ffi-support-for-scalar-udfs">FFI Support for Scalar UDFs<a class="headerlink" href="#ffi-support-for-scalar-udfs" title="Permanent link">¶</a></h3>
 <p>DataFusion’s Foreign Function Interface (FFI) has been extended to support <a href="https://github.com/apache/datafusion/pull/14579"><strong>user-defined scalar functions</strong></a> defined in external languages. In 46.0.0, you can now expose a custom scalar UDF through the FFI layer and use it in DataFusion as if it were built-in. This is particularly exciting for the <strong>Python bindings</strong> and other language integrations – it means you could define a function in Python (or C, etc.) and register it with DataFusion’s Rust core via the FFI crate. Thanks, <a href="https://github.com/timsaucer">@timsaucer</a>!</p>
 <h3 id="new-statisticsdistribution-framework">New Statistics/Distribution Framework<a class="headerlink" href="#new-statisticsdistribution-framework" title="Permanent link">¶</a></h3>
-<p>This release, thanks mainly to <a href="https://github.com/Fly-Style">@Fly-Style</a> with contributions from <a href="https://github.com/ozankabak">@ozankabak</a> and <a href="https://github.com/berkaysynnada">@berkaysynnada</a>, includes the initial pieces of a <a href="https://github.com/apache/datafusion/pull/14699">**redesigned statistics framework</a>.<strong> DataFusion’s optimizer can now represent column data distributions using a new <code>Distribution</code> enum, instead of the old precision or range estimations. The supported distribution types currently include </strong>Uniform, Gaussian (normal), Exponential, Bernoulli<strong>, and a </strong>Generic** catch-all.</p>
+<p>This release, thanks mainly to <a href="https://github.com/Fly-Style">@Fly-Style</a> with contributions from <a href="https://github.com/ozankabak">@ozankabak</a> and <a href="https://github.com/berkaysynnada">@berkaysynnada</a>, includes the initial pieces of a <a href="https://github.com/apache/datafusion/pull/14699">**redesigned statistics framework</a>.** DataFusion’s optimizer can now represent column data distributions using a new <code>Distribution</code> enum, instead of the old precision or range estimations. The supported distribution types currently include <strong>Uniform, Gaussian (normal), Exponential, Bernoulli</strong>, and a <strong>Generic</strong> catch-all.</p>
 <p>For example, if a filter expression is applied to a column with a known uniform distribution range, the optimizer can propagate that to estimate result selectivity more accurately. Similarly, comparisons (<code>=</code>, <code>&gt;</code>, etc.) on columns yield Bernoulli distributions (with true/false probabilities) in this model.</p>
 <p>This is a foundational change with many follow-on PRs underway. Even though the immediate user-visible effect is limited (the optimizer didn't magically improve by an order of magnitude overnight), but it lays groundwork for more advanced query planning in the future. Over time, as statistics information encapsulated in <code>Distribution</code>s get integrated, DataFusion will be able to make smarter decisions like more aggressive parquet pruning, better join orderings, and so on based on data distribution information. The core framework is now in place and is being hooked up to column and table level statistics.</p>
 <h3 id="aggregate-monotonicity-and-window-ordering">Aggregate Monotonicity and Window Ordering<a class="headerlink" href="#aggregate-monotonicity-and-window-ordering" title="Permanent link">¶</a></h3>
@@ -165,12 +167,12 @@ SELECT col2, col1 FROM t2;
   Loaded only after explicit visitor consent to comply with ASF policy.
 -->
 
-<div id="comments">
+<div>
   <hr>
-  <h3>Comments</h3>
+  <h3 id="comments">Comments<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h3>
 
   <!-- Local loader script -->
-  <script src="/content/js/giscus-consent.js" defer></script>
+  <script src="/blog/js/giscus-consent.js" defer></script>
 
   <!-- Consent UI -->
   <div id="giscus-consent">
@@ -210,6 +212,7 @@ SELECT col2, col1 FROM t2;
 </ul>
 </div>
       </aside>
+      <script src="/blog/js/toc-highlight.js" defer></script>
     </div>
   </div>
 </div>    
@@ -218,7 +221,16 @@ SELECT col2, col1 FROM t2;
       <div class="col-12">
         <p style="font-style: italic; font-size: 0.8rem; text-align: center;">
           Copyright 2026, <a href="https://www.apache.org/">The Apache Software Foundation</a>, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>
-          Apache&reg; and the Apache feather logo are trademarks of The Apache Software Foundation.
+          Apache&reg; and the Apache logo are trademarks of The Apache Software Foundation.
+        </p>
+        <p style="font-size: 0.8rem; text-align: center;">
+          <a href="https://www.apache.org/">Foundation</a> |
+          <a href="https://www.apache.org/events/current-event.html">Events</a> |
+          <a href="https://www.apache.org/licenses/">License</a> |
+          <a href="https://www.apache.org/security/">Security</a> |
+          <a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a> |
+          <a href="https://www.apache.org/foundation/thanks.html">Thanks</a> |
+          <a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy</a>
         </p>
       </div>
     </div>
